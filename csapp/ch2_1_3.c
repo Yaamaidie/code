@@ -1,18 +1,5 @@
 #include <stdio.h>
-#include <ch2_1_3.h>
-
-int main(void) {
-	int i = 10;
-	show_int(i);
-}
-
-void show_bytes(byte_pointer start, size_t len) {
-	size_t i;
-	for (i = 0; i < len; i++) {
-		printf(" %.2x", start[i]);
-	}
-	printf("\n");
-}
+#include "ch2_1_3.h"
 
 void show_int(int x) {
 	show_bytes((byte_pointer) &x, sizeof(int));
@@ -25,3 +12,12 @@ void show_float(float x) {
 void show_pointer(void *x) {
 	show_bytes((byte_pointer) &x, sizeof(void *));
 }
+
+void show_bytes(byte_pointer start, size_t len) {
+	size_t i;
+	for (i = 0; i < len; i++) {
+		printf(" %.2x", start[i]);
+	}
+	printf("\n");
+}
+
