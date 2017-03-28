@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <ch2_1_3.h>
 
-typedef unsigned char *byte_pointer;
+int main(void) {
+	int i = 10;
+	show_int(i);
+}
 
 void show_bytes(byte_pointer start, size_t len) {
 	size_t i;
@@ -20,9 +24,4 @@ void show_float(float x) {
 
 void show_pointer(void *x) {
 	show_bytes((byte_pointer) &x, sizeof(void *));
-}
-
-int main(void) {
-	int i = 10;
-	show_int(i);
 }
