@@ -1,0 +1,3 @@
+#ignore .o and executable file 
+*.[oa]
+/build
