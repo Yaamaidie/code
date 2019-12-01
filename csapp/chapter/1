@@ -1,0 +1,71 @@
+	.file	"var_prod_ele.c"
+	.text
+	.globl	var_prod_ele
+	.type	var_prod_ele, @function
+var_prod_ele:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r12
+	.cfi_offset 12, -24
+	movl	%edi, -52(%rbp)
+	movq	%rsi, -64(%rbp)
+	movq	%rdx, -72(%rbp)
+	movq	%rcx, -80(%rbp)
+	movq	%r8, -88(%rbp)
+	movl	-52(%rbp), %eax
+	movslq	%eax, %rdx
+	subq	$1, %rdx
+	movq	%rdx, -32(%rbp)
+	movslq	%eax, %rdx
+	movq	%rdx, %r11
+	movl	$0, %r12d
+	movl	-52(%rbp), %edx
+	movslq	%edx, %rcx
+	subq	$1, %rcx
+	movq	%rcx, -24(%rbp)
+	movslq	%edx, %rdx
+	movq	%rdx, %r9
+	movl	$0, %r10d
+	movl	$0, -44(%rbp)
+	movq	$0, -40(%rbp)
+	jmp	.L2
+.L3:
+	movslq	%eax, %rcx
+	movq	-80(%rbp), %rdx
+	imulq	%rcx, %rdx
+	leaq	0(,%rdx,4), %rcx
+	movq	-64(%rbp), %rdx
+	addq	%rdx, %rcx
+	movq	-40(%rbp), %rdx
+	movl	(%rcx,%rdx,4), %ecx
+	movslq	%eax, %rsi
+	movq	-40(%rbp), %rdx
+	imulq	%rsi, %rdx
+	leaq	0(,%rdx,4), %rsi
+	movq	-64(%rbp), %rdx
+	addq	%rdx, %rsi
+	movq	-88(%rbp), %rdx
+	movl	(%rsi,%rdx,4), %edx
+	addl	%ecx, %edx
+	addl	%edx, -44(%rbp)
+	addq	$1, -40(%rbp)
+.L2:
+	movl	-52(%rbp), %edx
+	movslq	%edx, %rdx
+	cmpq	-40(%rbp), %rdx
+	jg	.L3
+	movl	-44(%rbp), %eax
+	popq	%r12
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	var_prod_ele, .-var_prod_ele
+	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609"
+	.section	.note.GNU-stack,"",@progbits
